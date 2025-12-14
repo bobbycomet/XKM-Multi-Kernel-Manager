@@ -13,6 +13,16 @@ License: GPL 3.0
 Project: https://github.com/bobbycomet/XKM-Multi-Kernel-Manager
 Discord: https://discord.gg/7fEt5W7DPh
 """
+# XKM – Multi-Kernel Manager
+# Copyright (C) 2025 Bobby Comet
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, version 3.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
 import os
 import sys

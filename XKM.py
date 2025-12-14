@@ -2,7 +2,16 @@
 # -*- coding: utf-8 -*-
 """
 Multi-Kernel Manager — XanMod + Liquorix + Mainline
-ULTIMATE FINAL VERSION — DECEMBER 2025 — ABSOLUTELY PERFECT
+"""
+"""
+XKM 
+Multi-Kernel Manager
+
+Author: BobbyComet[](https://github.com/bobbycomet)
+Version: 1.0.0
+License: GPL 3.0
+Project: https://github.com/bobbycomet/XKM-Multi-Kernel-Manager
+Discord: https://discord.gg/7fEt5W7DPh
 """
 
 import os

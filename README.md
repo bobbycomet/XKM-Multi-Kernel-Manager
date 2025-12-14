@@ -40,6 +40,17 @@ All in one clean GTK4/Libadwaita interface.
 
 ![XKM Screenshot](https://github.com/bobbycomet/XKM-Multi-Kernel-Manager/blob/main/XKM.png)
 
+## Forks & Derivatives
+
+If you build a project using XKM as a base
+Or in your distribution
+Please credit the original project:
+
+> Forks “Based on XKM – Multi-Kernel Manager by Bobby Comet”
+> Distros "Uses XKM - Multi-Kernel-Manager by Bobby Comet"
+This is not legally required beyond GPL,
+but is requested out of respect for the work involved.
+
 
 ## Installation
 

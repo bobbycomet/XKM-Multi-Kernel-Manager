@@ -64,7 +64,7 @@ but is requested out of respect for the work involved.
 ### Install dependencies
 ```
 sudo apt update
-sudo apt install python3-gi gir1.2-gtk-4.0 gir1.2-adw-1 policykit-1 curl gnupg
+sudo apt install python3-gi python3-apt gir1.2-gtk-4.0 gir1.2-adw-1 policykit-1 curl gnupg
 ```
 ### IMPORTANT!!! Add this if you have not already
 ```

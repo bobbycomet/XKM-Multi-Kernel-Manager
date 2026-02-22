@@ -100,6 +100,8 @@ If XanMod or Liquorix aren't set up on your system yet, XKM will detect this whe
 
 ---
 
+Download the Deb file or run the Python file.
+
 ## Running it
 
 ```bash

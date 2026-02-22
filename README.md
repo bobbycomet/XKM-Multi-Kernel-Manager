@@ -10,115 +10,109 @@
   <img src="https://raw.githubusercontent.com/bobbycomet/Appify/main/Griffin-G.png" alt="Griffin Screenshot" width="25%"/>
 </p>
 
-**Built for Griffin Linux (coming soon) and other Ubuntu variants.**
+# XKM — Multi-Kernel Manager
 
-**XKM** is a modern, user-friendly graphical tool for managing multiple Linux kernel sources on Debian-based distributions (Ubuntu, Linux Mint, Pop!_OS, etc.). It lets you easily browse, install, remove, and keep track of kernels from three popular sources:
+A simple graphical tool for managing Linux kernels on Ubuntu-based systems. Install, remove, and pin kernel versions without touching the terminal.
 
-- **XanMod** – high-performance custom kernels  
-- **Liquorix** – Zen-tuned kernels optimized for desktop responsiveness  
-- **Mainline / Generic** – official Ubuntu/mainline kernels  
+<img width="1920" height="1080" alt="Screenshot from 2026-02-21 21-04-51" src="https://github.com/user-attachments/assets/ae78b8c6-85e8-453e-a3da-bacb14061746" />
 
-All in one clean GTK4/Libadwaita interface.
+---
 
-## Features
+## What it does
 
-- Native GNOME-style UI built with GTK4 and Libadwaita
-- Separate tabs for XanMod, Liquorix, and Mainline kernels
-- Live search/filter across all kernels
-- Check-box selection for bulk install/remove
-- One-click repository addition (XanMod and official Liquorix PPA) with automatic `apt update`
-- Automatic DKMS module rebuild for newly installed kernels
-- Optional auto-remove of old kernels after successful installation
-- Smart “Auto-Remove Old Kernels” button (keeps current + 2 newest) or manual removal
-- Detailed operation log panel (with persistent log files)
-- Dark/Light mode switch
-- Periodic background refresh
-- Reboot prompt after kernel installation
-- Silent APT operations (terminal does not open)
-- Safety checks – prevents removal of the currently running kernel
+XKM gives you a clean interface to browse every kernel available through your system's package manager and take action on them — all in one place, no commands needed.
 
+It supports three kernel families:
 
-![XKM Screenshot](https://github.com/bobbycomet/XKM-Multi-Kernel-Manager/blob/main/XKM.png)
+- **XanMod** — performance-focused kernels with options tuned for different CPU generations
+- **Liquorix** — low-latency kernels aimed at desktop and gaming use
+- **Mainline** — the standard Ubuntu/Debian kernels your system ships with
 
-## Forks & Derivatives
+---
 
-If you build a project using XKM as a base
-Or in your distribution
-Please credit the original project:
+## How it works
 
-> Forks “Based on XKM – Multi-Kernel Manager by Bobby Comet”
-> Distros "Uses XKM - Multi-Kernel-Manager by Bobby Comet"
-This is not legally required beyond GPL,
-but is requested out of respect for the work involved.
+When you open XKM it reads your system's package cache (the same database `apt` uses) and shows you what's installed, what's available, and which kernel you're currently running. No internet connection is needed just to browse — it only goes online when you actually install or update something.
 
+Each tab shows kernels for that family. You check the boxes next to the ones you want to act on, then use the buttons at the top.
 
-## Installation
+---
 
-### Requirements if built from source
-- Ubuntu 22.04+ or any recent Debian-based distro
-- Python 3.10 or newer
-- `python3-gi`, `gir1.2-adw-1`, `gir1.2-gtk-4.0`
-- `apt` and `pkexec` (policykit) for privileged operations
-- Internet connection (for adding repositories and downloading kernels)
+## The buttons
 
-### Install dependencies
+| Button | What it does |
+|---|---|
+| **↺ Refresh** | Re-reads the package list (also runs `apt update` first) |
+| **⬇ Install Selected** | Installs whatever you've checked |
+| **⬇🔒 Install + Hold** | Installs and immediately freezes those packages so they won't be upgraded automatically |
+| **✕ Remove Selected** | Removes checked kernels (asks whether to keep config files or delete everything) |
+| **🔒 Hold** | Freezes an installed kernel so `apt upgrade` won't touch it |
+| **🔓 Unhold** | Unfreezes a held kernel |
+| **Auto-Remove Old** | Removes older installed kernels, keeping the active one and the most recent |
+
+---
+
+## Installing a kernel
+
+1. Pick a tab (XanMod, Liquorix, or Mainline)
+2. Check the box next to the kernel you want
+3. Click **Install Selected**
+4. Enter your password when prompted
+5. Reboot when it's done
+
+That's it. XKM handles the rest — including updating your bootloader so the new kernel shows up at startup.
+
+---
+
+## The XanMod flavor filter
+
+XanMod packages come in different builds optimised for different CPUs. Use the **Flavor** dropdown on the XanMod tab to narrow things down:
+
+- **v1** — works on any x86-64 CPU (safe default if you're unsure)
+- **v2** — requires SSE4 (most CPUs from ~2008 onwards)
+- **v3** — requires AVX2 (Intel Haswell / AMD Ryzen and newer)
+- **v4** — requires AVX-512 (high-end modern CPUs only)
+- **edge** — latest upstream version, may be less stable
+- **lts** — long-term support release
+
+---
+
+## Holding a kernel
+
+"Holding" a package tells apt to never upgrade or remove it automatically. This is useful when you've found a kernel that works well and don't want it replaced by the next `apt upgrade`. A held kernel shows an orange **[Held]** badge. Use **Unhold** to release it whenever you're ready.
+
+---
+
+## The Details log
+
+Click **Show Details** at the bottom to see a live log of everything happening — package downloads, installation output, bootloader updates, and so on. Logs are also saved automatically to `~/.config/xanmod-kernel-manager/logs/`.
+
+---
+
+## First launch — repository setup
+
+If XanMod or Liquorix aren't set up on your system yet, XKM will detect this when it first opens and offer to add them for you. Just click **Add Repositories** on the prompt and it handles everything — adding the correct sources and importing the signing keys. If you'd rather do it manually or don't need those kernels, you can dismiss the prompt and it won't ask again.
+
+---
+
+## Requirements
+
+- Ubuntu 22.04 or newer (or a compatible derivative)
+- `pkexec` for privilege escalation (standard on most desktop systems)
+
+---
+
+## Running it
+
+```bash
+python3 XKM
 ```
-sudo apt update
-sudo apt install python3-gi python3-apt gir1.2-gtk-4.0 gir1.2-adw-1 policykit-1 curl gnupg
+
+To run the built-in self-tests:
+
+```bash
+python3 XKM --test
 ```
-### IMPORTANT!!! Add this if you have not already
-```
-sudo apt install dkms linux-headers-$(uname -r)
-```
-### Install XKM
-Gdebi is preferred to make sure dependencies are installed (your distro might have another tool or Gdebi by default), or use the above method to set up the environment. 
-
-```
-sudo apt install gdebi
-
-```
-
-```
-wget https://github.com/bobbycomet/XKM-Multi-Kernel-Manager/releases/download/v1.0.0/XKM-1.0.0.deb
-sudo gdebi XKM-1.0.0.deb
-```
-
-## Usage
-
-1. Launch XKM – it will automatically check for missing repositories and offer to add them. Skips if already in the system.
-2. Choose the kernel(s) you want by checking the boxes (or double-click).
-3. Click **Install Selected** → the tool will:
-   - Install the kernel packages
-   - Rebuild any DKMS modules (e.g., NVIDIA, gamepads, etc.)
-   - Prompt for reboot
-4. Use **Remove Selected** to purge unwanted kernels (active kernel is protected).
-5. **Auto-Remove Old** keeps only the running kernel + the two newest versions.
-
-All operations require administrator privileges via `pkexec`.
-
-## Configuration for the nerds like me
-
-Configuration is stored in `~/.config/xanmod-kernel-manager/config.json`:
-
-- Default for window size
-- Dark/Light mode preference
-- Auto-remove after install toggle
-- Auto-check interval (hours)
-
-Logs are saved in `~/.config/xanmod-kernel-manager/logs/` with timestamps.
-
-## Contributing
-
-Contributions are very welcome!
-
-- Report bugs or request features via GitHub Issues
-- Submit pull requests (please follow PEP 8 and keep the code readable)
-- Help improve the UI/UX, add translations, or write documentation
-
-## License
-
-This project is licensed under the **GNU General Public License v3.0** – see the [LICENSE](LICENSE) file for details.
-
 ## Acknowledgments
 
 - XanMod project – https://xanmod.org

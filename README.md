@@ -1,6 +1,5 @@
-<div align="center">
-  <img src="https://github.com/bobbycomet/XKM-Multi-Kernel-Manager/blob/main/com.xanmod.kernel.manager.png" alt="XKM Screenshot" width="25%"/>
-</div>
+<img width="1024" height="1024" alt="com xanmod kernel manager" src="https://github.com/user-attachments/assets/0ab6fac5-b4ef-4be4-8450-049b7d278098" />
+
 
 # XKM — Multi-Kernel Manager
 

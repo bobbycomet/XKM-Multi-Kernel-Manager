@@ -103,6 +103,8 @@ If XanMod or Liquorix aren't set up on your system yet, XKM will detect this whe
 
 Download the Deb file or run the Python file.
 
+[Dependencies](https://github.com/bobbycomet/XKM-Multi-Kernel-Manager/wiki#dependencies)
+
 ## Running it
 
 ```bash

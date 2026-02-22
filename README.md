@@ -25,6 +25,7 @@ It supports three kernel families:
 - **XanMod** — performance-focused kernels with options tuned for different CPU generations
 - **Liquorix** — low-latency kernels aimed at desktop and gaming use
 - **Mainline** — the standard Ubuntu/Debian kernels your system ships with
+- **DKMS** — Auto handles DKMS to the new kernel for support.
 
 ---
 

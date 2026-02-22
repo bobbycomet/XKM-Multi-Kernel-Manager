@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=XKM Multi-Kernel Manager
+Comment=Manage XanMod, Liquorix, and Mainline Linux Kernels
+Exec=xkm-manager
+Terminal=false
+Type=Application
+Categories=System;Utility;GTK;
+Icon=/usr/share/icons/hicolor/com.xanmod.kernel.manager.png
+StartupNotify=true
+MimeType=
+Keywords=kernel;xanmod;liquorix;apt;manager;

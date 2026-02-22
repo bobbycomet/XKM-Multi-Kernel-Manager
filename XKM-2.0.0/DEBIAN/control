@@ -1,0 +1,12 @@
+Package: xkm-multi-kernel-manager
+Version: 1.0.0-1
+Section: utils
+Priority: optional
+Architecture: all
+Maintainer: Bobby Comet
+Depends: python3, python3-apt, python3-gi, gir1.2-adw-1, gir1.2-gtk-4.0, policykit-1, curl, gnupg
+Installed-Size: 120
+Description: Multi-Kernel Manager (XanMod, Liquorix, Mainline)
+ A Python application built with GTK4/Adwaita to manage the installation
+ and removal of XanMod, Liquorix, and mainline/generic Linux kernels
+ via the APT package manager, and DKMS support.

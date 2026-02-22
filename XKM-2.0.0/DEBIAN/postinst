@@ -1,0 +1,13 @@
+#!/bin/sh
+set -e
+
+# Fix permissions on the main script
+chmod 0755 /usr/bin/xkm-manager
+
+# Update the desktop file database
+update-desktop-database > /dev/null || true
+
+# Update icon caches
+gtk-update-icon-cache -qf /usr/share/icons/hicolor || true
+
+exit 0

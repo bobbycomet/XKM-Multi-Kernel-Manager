@@ -2,17 +2,15 @@
   <img src="https://github.com/bobbycomet/XKM-Multi-Kernel-Manager/blob/main/com.xanmod.kernel.manager.png" alt="XKM Screenshot" width="25%"/>
 </div>
 
-# XKM – Multi-Kernel Manager  
-**XanMod • Liquorix • Mainline • DKMS support**
-**Xanmod and Liquorix kernels are widely used in gaming and low-latency systems. They are unofficial but well-maintained.**
+# XKM — Multi-Kernel Manager
+
+A simple graphical tool for managing Linux kernels on Ubuntu-based systems. Install, remove, and pin kernel versions without touching the terminal.
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/bobbycomet/Appify/main/Griffin-G.png" alt="Griffin Screenshot" width="25%"/>
 </p>
 
-# XKM — Multi-Kernel Manager
 
-A simple graphical tool for managing Linux kernels on Ubuntu-based systems. Install, remove, and pin kernel versions without touching the terminal.
 
 <img width="1920" height="1080" alt="Screenshot from 2026-02-21 21-04-51" src="https://github.com/user-attachments/assets/ae78b8c6-85e8-453e-a3da-bacb14061746" />
 

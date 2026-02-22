@@ -31,7 +31,7 @@ It supports three kernel families:
 
 ## How it works
 
-When you open XKM it reads your system's package cache (the same database `apt` uses) and shows you what's installed, what's available, and which kernel you're currently running. No internet connection is needed just to browse — it only goes online when you actually install or update something.
+When you open XKM it reads your system's package cache (the same database `apt` uses) and shows you what's installed, what's available, and which kernel you're currently running. No internet connection is needed just to browse — it only goes online when you actually install or update something. Linux-headers are pulled alongside the Linux-image
 
 Each tab shows kernels for that family. You check the boxes next to the ones you want to act on, then use the buttons at the top.
 

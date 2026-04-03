@@ -2,11 +2,13 @@
   <img width="500" height="500" alt="com xanmod kernel manager" src="https://github.com/user-attachments/assets/0ab6fac5-b4ef-4be4-8450-049b7d278098" />
 </p>
 
+Made for Windows switchers to Ubuntu to have an easier time. No Terminal to add things you probably never heard of like PPAs. Just open, it will ask to auto add PPAs, install what you want, and remove what you want. Very easily done in the GUI, no code knowledge needed. For kernel testers, you have some nice features, see below.
+
 # XKM — Multi-Kernel Manager
 
 A simple graphical tool for managing Linux kernels on Ubuntu-based systems. Install, remove, and pin kernel versions without touching the terminal.
 
-Best used with: Kernel Autotune — https://github.com/bobbycomet/kernel-autotune-V2 (auto configures the kernel parameters) and Process Sentry — https://github.com/bobbycomet/Process-Sentry (keeps everything responsive)
+Best used with these tools for Windows switchers: Kernel Autotune — https://github.com/bobbycomet/kernel-autotune-V2 (auto configures the kernel parameters) and Process Sentry — https://github.com/bobbycomet/Process-Sentry (keeps everything responsive)
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/bobbycomet/Appify/main/Griffin-G.png" alt="Griffin Screenshot" width="25%"/>

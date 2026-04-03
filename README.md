@@ -6,6 +6,8 @@
 
 A simple graphical tool for managing Linux kernels on Ubuntu-based systems. Install, remove, and pin kernel versions without touching the terminal.
 
+Best used with: Kernel Autotune — https://github.com/bobbycomet/kernel-autotune-V2 (auto configures the kernel parameters) and Process Sentry — https://github.com/bobbycomet/Process-Sentry (keeps everything responsive)
+
 <p align="center">
   <img src="https://raw.githubusercontent.com/bobbycomet/Appify/main/Griffin-G.png" alt="Griffin Screenshot" width="25%"/>
 </p>

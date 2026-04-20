@@ -2,7 +2,9 @@
   <img width="500" height="500" alt="com xanmod kernel manager" src="https://github.com/user-attachments/assets/0ab6fac5-b4ef-4be4-8450-049b7d278098" />
 </p>
 
-Made for Windows switchers to Ubuntu to have an easier time. No Terminal to add things you probably never heard of like PPAs. Just open, it will ask to auto add PPAs, install what you want, and remove what you want. Very easily done in the GUI, no code knowledge needed. For kernel testers, you have some nice features, see below.
+Made for Windows switchers to Ubuntu to have an easier time. No Terminal to add things you probably never heard of, like PPAs. Just open it, it will ask to auto-add PPAs, install what you want, and remove what you want. Very easily done in the GUI, no code knowledge needed. For kernel testers, you have some nice features, see below.
+
+Version 2.0.1 now has a policy kit, some GTK bug fixes, some pkexec fixes, and more. Now an AppOmage as well.
 
 # XKM — Multi-Kernel Manager
 

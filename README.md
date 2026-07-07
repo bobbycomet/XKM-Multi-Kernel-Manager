@@ -141,3 +141,5 @@ Discord: https://discord.gg/7fEt5W7DPh
 Patreon (Beta Builds): https://www.patreon.com/c/BobbyComet/membership
 
 Support the Griffin Project: https://ko-fi.com/bobby60908
+
+XKM is part of the Griffin Linux project. The name XKM, the Griffin Linux name, and associated icons are protected under the GPLv3 to preserve the integrity of the branding in all distributed versions.

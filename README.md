@@ -134,12 +134,16 @@ python3 XKM --test
 
 **Enjoy a smoother, faster desktop with the kernel of your choice – all managed from one place!**
 
-## Community & Support
+## Community and Support
 
-Discord: https://discord.gg/7fEt5W7DPh
+- **Discord:** [Join Here](https://discord.gg/7fEt5W7DPh)
+- **Patreon (Beta Builds):** [Patreon](https://www.patreon.com/c/BobbyComet/membership)
+- **Support the Griffin Project:** [Ko-fi](https://ko-fi.com/bobby60908)
 
-Patreon (Beta Builds): https://www.patreon.com/c/BobbyComet/membership
-
-Support the Griffin Project: https://ko-fi.com/bobby60908
+<div align="center">
+  <img src="https://raw.githubusercontent.com/bobbycomet/Appify/main/Griffin-G.png" alt="Griffin Linux" width="15%"/>
+  <p><strong>Griffin Linux. Where power meets simplicity.</strong><br/>
+  Made with Windows switchers in mind. Built for everyone who wants a better PC.</p>
+</div>
 
 XKM is part of the Griffin Linux project. The name XKM, the Griffin Linux name, and associated icons are protected under the GPLv3 to preserve the integrity of the branding in all distributed versions.

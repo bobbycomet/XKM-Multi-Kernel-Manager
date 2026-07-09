@@ -4,7 +4,9 @@
 
 [Griffin blog for updates and releases](https://griffin-linux.blogspot.com/)
 
-Made for Windows switchers to Ubuntu to have an easier time. No Terminal to add things you probably never heard of, like PPAs. Just open it, it will ask to auto-add PPAs, install what you want, and remove what you want. Very easily done in the GUI, no code knowledge needed. For kernel testers, you have some nice features, see below.
+## 3.0 is coming. Why the jump? It will detect your CPU and suggest the best version (v1, v2, v3, v4) kernel for you to choose from. It is in PyQt6 now with the Griffin dark theme and has better kernel groupings. So, if you click a kernel, everything that is needed in that kernel is added; you can also click off boxes if you know what you are doing. Mainline now has collapsed sections, where before you had to scroll forever to find the header, image, and so on that you needed. I accidentally forgot to post updates in the 2.0 family as I updated it.
+
+Made for Windows switchers to Ubuntu to have an easier time. No Terminal to add things you probably never heard of, like PPAs. Just open it, it will ask to auto-add PPAs, install what you want, and remove what you want. Very easily done in the GUI, no code knowledge needed. For kernel testers, you have some nice features; see below.
 
 Version 2.0.1 now has a policy kit, some GTK bug fixes, some pkexec fixes, and more. Now an AppOmage as well.
 

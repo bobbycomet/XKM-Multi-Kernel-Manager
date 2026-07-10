@@ -157,6 +157,8 @@ Or use your package installer.
 
 ## Running it
 
+**Recommended** to use the desktop shortcut in your applications window.
+
 ```bash
 python3 XKM
 ```

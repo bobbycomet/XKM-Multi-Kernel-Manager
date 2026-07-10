@@ -26,8 +26,6 @@ Best used with these tools for Windows switchers: [Kernel Autotune](https://gith
   <img src="https://raw.githubusercontent.com/bobbycomet/Appify/main/Griffin-G.png" alt="Griffin Screenshot" width="25%"/>
 </p>
 
-<img width="1920" height="1080" alt="Screenshot from 2026-02-21 21-04-51" src="https://github.com/user-attachments/assets/ae78b8c6-85e8-453e-a3da-bacb14061746" />
-
 ---
 
 ## What it does

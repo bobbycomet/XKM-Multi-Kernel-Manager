@@ -4,7 +4,4 @@ Source: https://github.com/bobbycomet/XKM-Multi-Kernel-Manager
 
 Files: *
 Copyright: Bobby Comet
-License: proprietary
- All rights reserved unless a license is specified in the upstream
- repository. Replace this stanza with your actual license (e.g. MIT,
- GPL-3.0) before distributing this package.
+License: GPLv3

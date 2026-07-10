@@ -149,7 +149,7 @@ wget https://github.com/bobbycomet/XKM-Multi-Kernel-Manager/releases/download/v3
 sudo apt install ./XKM.deb
 ```
 
-Or use your oackage installer.
+Or use your package installer.
 
 [Dependencies](https://github.com/bobbycomet/XKM-Multi-Kernel-Manager/wiki#dependencies)
 

@@ -63,6 +63,10 @@ Each tab shows kernels for that family. You check the boxes next to the ones you
 | **Unhold** | Unfreezes a held kernel |
 | **Auto-Remove Old** | Removes older installed kernels, keeping the active one and the most recent |
 
+<img width="1920" height="1080" alt="Screenshot_20260709_235140" src="https://github.com/user-attachments/assets/80f21b28-504d-4256-b832-b6e08113a4f4" />
+<img width="1920" height="1080" alt="Screenshot_20260709_235126" src="https://github.com/user-attachments/assets/116aac5d-eb2a-4a32-92ca-f347b8db615a" />
+<img width="1920" height="1080" alt="Screenshot_20260709_235100" src="https://github.com/user-attachments/assets/035aef70-6156-48fa-9303-b6a4733feaf9" />
+
 ---
 
 ## Installing a kernel

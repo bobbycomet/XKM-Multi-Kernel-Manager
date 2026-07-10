@@ -5,7 +5,7 @@
 If you find a security issue in XKM, please report it privately rather than opening a public issue. The best way to do this is through 
 GitHub's private vulnerability reporting for this repository:
 
-1. Go to the **Griffin apps issue reporting** forun tab on the [XKM repository](https://github.com/bobbycomet/XKM-Multi-Kernel-Manager)
+1. Go to the **Griffin apps issue reporting** forun tab on the [DISCORD](https://github.com/bobbycomet/XKM-Multi-Kernel-Manager)
 2. Create a new post and **Use the tags**
 3. Include as much detail as you can: what the issue is, how to reproduce it, and what you think the impact is
 

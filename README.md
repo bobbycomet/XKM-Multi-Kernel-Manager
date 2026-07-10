@@ -181,6 +181,18 @@ xkm --test
 
 **Enjoy a smoother, faster desktop with the kernel of your choice, all managed from one place!**
 
+## Forks & Derivative Works
+
+XKM is licensed under the GPLv3, and forks and derivative projects are welcome.
+
+If you build on XKM, please:
+
+- Keep the GPLv3 license terms intact.
+- Give appropriate credit to the original XKM project.
+- Include a link back to this repository where practical.
+
+If you're building something cool with it, I'd love to hear about it!
+
 ## Community and Support
 
 - **Discord:** [Join Here](https://discord.gg/7fEt5W7DPh)
@@ -193,4 +205,6 @@ xkm --test
   Made with Windows switchers in mind. Built for everyone who wants a better PC.</p>
 </div>
 
-XKM is part of the Griffin Linux project. The name XKM, the Griffin Linux name, and associated icons are protected under the GPLv3 to preserve the integrity of the branding in all distributed versions.
+The XKM and Griffin Linux names, logos, and branding are not covered by the GPL license and may not be used to imply endorsement 
+or official affiliation without permission. Forks are encouraged, but please rename and rebrand modified versions unless you've 
+received permission to use the original branding.

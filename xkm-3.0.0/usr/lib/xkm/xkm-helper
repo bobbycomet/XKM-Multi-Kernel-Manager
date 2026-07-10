@@ -1,0 +1,190 @@
+#!/bin/bash
+#
+# xkm-helper — privileged operations for the XKM Multi-Kernel Manager.
+#
+# This script is invoked exclusively as:
+#     pkexec /usr/lib/xkm/xkm-helper <subcommand> [args...]
+#
+# It is NOT a general-purpose root shell. Only a fixed set of subcommands is
+# accepted, and every package-name / kernel-version argument is re-validated
+# here (in addition to validation already done on the GUI side) before it
+# ever reaches apt/dpkg/dkms. Do not add subcommands that accept arbitrary
+# shell fragments, paths, or unvalidated strings.
+
+set -euo pipefail
+
+export DEBIAN_FRONTEND=noninteractive
+export APT_LISTCHANGES_FRONTEND=none
+export NEEDRESTART_MODE=l
+
+# Debian package name policy: lowercase letters, digits, plus, minus, dot.
+readonly PKG_RE='^[a-z0-9][a-z0-9+.-]*$'
+# Kernel version strings as they appear under /usr/lib/modules (e.g.
+# "6.14.0-37-generic", "6.18.3-x64v3-xanmod1").
+readonly KVER_RE='^[A-Za-z0-9][A-Za-z0-9.+_-]*$'
+
+die() {
+    echo "xkm-helper: $*" >&2
+    exit 1
+}
+
+check_pkgs() {
+    [ $# -ge 1 ] || die "no package names given"
+    for p in "$@"; do
+        [[ "$p" =~ $PKG_RE ]] || die "invalid package name rejected: $p"
+    done
+}
+
+check_kvers() {
+    [ $# -ge 1 ] || die "no kernel versions given"
+    for k in "$@"; do
+        [[ "$k" =~ $KVER_RE ]] || die "invalid kernel version rejected: $k"
+    done
+}
+
+[ $# -ge 1 ] || die "no subcommand given"
+cmd="$1"
+shift
+
+case "$cmd" in
+
+    # ── Sources / repositories ────────────────────────────────────────────
+    update-sources)
+        exec apt-get update -qq
+        ;;
+
+    add-repo-liquorix)
+        [ $# -eq 0 ] || die "add-repo-liquorix takes no arguments"
+        # add-apt-repository ships in software-properties-common, which is
+        # not guaranteed to be present on a minimal install. Rather than
+        # failing opaquely here (set -e would kill the script on a
+        # "command not found" with no clear message reaching the GUI log),
+        # install it first so this subcommand is self-contained — same
+        # spirit as add-repo-xanmod, which only depends on curl/gpg that
+        # are already guaranteed present.
+        if ! command -v add-apt-repository >/dev/null 2>&1; then
+            echo "add-apt-repository not found — installing software-properties-common…"
+            apt-get install -y software-properties-common
+        fi
+        exec add-apt-repository -y ppa:damentz/liquorix
+        ;;
+
+    add-repo-xanmod)
+        [ $# -eq 0 ] || die "add-repo-xanmod takes no arguments"
+        install -m 0755 -d /usr/share/keyrings
+        curl -fsSL https://dl.xanmod.org/gpg.key \
+            | gpg --dearmor -o /usr/share/keyrings/xanmod-archive-keyring.gpg
+        echo 'deb [signed-by=/usr/share/keyrings/xanmod-archive-keyring.gpg] http://deb.xanmod.org releases main' \
+            > /etc/apt/sources.list.d/xanmod-kernel.list
+        exec apt-get update -qq
+        ;;
+
+    # ── Install / remove ──────────────────────────────────────────────────
+    install)
+        check_pkgs "$@"
+        exec apt-get install -y "$@"
+        ;;
+
+    remove)
+        purge=0
+        if [ "${1:-}" = "--purge" ]; then
+            purge=1
+            shift
+        fi
+        check_pkgs "$@"
+        if [ "$purge" -eq 1 ]; then
+            exec apt-get remove -y --purge "$@"
+        else
+            exec apt-get remove -y "$@"
+        fi
+        ;;
+
+    # ── Hold / unhold ──────────────────────────────────────────────────────
+    hold)
+        check_pkgs "$@"
+        exec apt-mark hold "$@"
+        ;;
+
+    unhold)
+        check_pkgs "$@"
+        exec apt-mark unhold "$@"
+        ;;
+
+    # ── Bootloader ─────────────────────────────────────────────────────────
+    update-grub)
+        [ $# -eq 0 ] || die "update-grub takes no arguments"
+        exec update-grub
+        ;;
+
+    # ── DKMS ────────────────────────────────────────────────────────────────
+    dkms-autoinstall)
+        check_kvers "$@"
+        FAILED_KERNELS=()
+        DKMS_REPORT=""
+
+        for kver in "$@"; do
+            echo ""
+            echo "━━━ DKMS autoinstall for: $kver ━━━"
+
+            MODULES=$(dkms status 2>/dev/null | awk -F',' '{print $1}' | sort -u || true)
+
+            if [ -z "$MODULES" ]; then
+                echo "  ✓ No DKMS modules registered — nothing to do for $kver"
+                continue
+            fi
+
+            if dkms autoinstall -k "$kver" 2>&1; then
+                echo "  ✓ dkms autoinstall succeeded for $kver"
+            else
+                echo "  ✗ dkms autoinstall reported errors for $kver"
+                FAILED_KERNELS+=("$kver")
+            fi
+
+            echo ""
+            echo "  Verifying DKMS module status for $kver:"
+            while IFS= read -r line; do
+                mod=$(echo "$line" | awk -F',' '{print $1}')
+                state=$(echo "$line" | grep -oP '(installed|built|not installed|disabled|error)' | head -1)
+                if [[ "$line" == *"$kver"* ]]; then
+                    if [[ "$state" == "installed" || "$state" == "built" ]]; then
+                        echo "    ✓  $mod — $state"
+                    else
+                        echo "    ✗  $mod — ${state:-unknown} (may need attention)"
+                        DKMS_REPORT+="WARN: $mod on $kver is '${state:-unknown}'\n"
+                    fi
+                fi
+            done < <(dkms status 2>/dev/null || true)
+        done
+
+        if [ -n "$DKMS_REPORT" ]; then
+            echo ""
+            echo "━━━ DKMS Warning Summary ━━━"
+            echo -e "$DKMS_REPORT"
+        fi
+
+        if [ ${#FAILED_KERNELS[@]} -gt 0 ]; then
+            echo ""
+            echo "━━━ DKMS ERRORS ━━━"
+            echo "The following kernels had DKMS failures:"
+            for k in "${FAILED_KERNELS[@]}"; do
+                echo "  ✗ $k"
+            done
+            echo "You may need to manually run: sudo dkms autoinstall -k <version>"
+            exit 1
+        fi
+
+        echo ""
+        echo "✓ All DKMS modules processed successfully."
+        exit 0
+        ;;
+
+    # ── Reboot ──────────────────────────────────────────────────────────────
+    reboot)
+        [ $# -eq 0 ] || die "reboot takes no arguments"
+        exec systemctl reboot
+        ;;
+
+    *)
+        die "unknown subcommand: $cmd"
+        ;;
+esac

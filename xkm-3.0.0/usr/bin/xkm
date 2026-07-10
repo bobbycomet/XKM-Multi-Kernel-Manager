@@ -1,0 +1,3 @@
+#!/bin/bash
+# Launcher for XKM Multi-Kernel Manager.
+exec /usr/bin/python3 /usr/lib/xkm/xkm.py "$@"

@@ -1,0 +1,25 @@
+Package: xkm
+Version: 3.0.0
+Section: admin
+Priority: optional
+Architecture: amd64
+Maintainer: Bobby Comet <griffin.linux@gmal.com>
+Depends: python3 (>= 3.10), python3-pyqt6, python3-apt, policykit-1, software-properties-common, gnupg, curl
+Recommends: dkms
+Conflicts: xkm-multi-kernel-manager
+Replaces: xkm-multi-kernel-manager
+Provides: xkm-multi-kernel-manager
+Homepage: https://github.com/bobbycomet/XKM-Multi-Kernel-Manager
+Description: Multi-Kernel Manager for XanMod, Liquorix, and mainline kernels
+ XKM is a PyQt6 GUI for installing, removing, holding/unholding, and
+ keeping track of XanMod, Liquorix, and mainline Ubuntu kernel packages.
+ .
+ It handles apt repository setup for XanMod and Liquorix, apt-mark
+ hold/unhold, a GRUB update safety net after install/remove, and DKMS
+ module rebuilds for newly installed kernels, with a reboot prompt once
+ everything is ready.
+ .
+ All privileged operations (package install/remove, hold/unhold, adding
+ repositories, updating GRUB, DKMS rebuilds, and rebooting) are performed
+ by a small dedicated helper script authorized via a scoped polkit policy,
+ rather than granting the whole application broad root privileges.

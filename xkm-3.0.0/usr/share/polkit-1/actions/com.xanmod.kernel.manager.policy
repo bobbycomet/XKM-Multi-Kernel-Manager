@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE policyconfig PUBLIC
+ "-//freedesktop//DTD PolicyKit Policy Configuration 1.0//EN"
+ "http://www.freedesktop.org/standards/PolicyKit/1/policyconfig.dtd">
+<policyconfig>
+
+  <vendor>XKM Multi-Kernel Manager</vendor>
+  <vendor_url>https://github.com/bobbycomet/XKM-Multi-Kernel-Manager</vendor_url>
+  <icon_name>xkm</icon_name>
+
+  <action id="com.xanmod.kernel.manager.helper">
+    <description>Manage XanMod, Liquorix, and mainline kernel packages</description>
+    <message>Authentication is required to install, remove, or configure kernel packages</message>
+    <icon_name>xkm</icon_name>
+    <defaults>
+      <allow_any>auth_admin</allow_any>
+      <allow_inactive>auth_admin</allow_inactive>
+      <allow_active>auth_admin_keep</allow_active>
+    </defaults>
+    <annotate key="org.freedesktop.policykit.exec.path">/usr/lib/xkm/xkm-helper</annotate>
+    <annotate key="org.freedesktop.policykit.exec.allow_gui">true</annotate>
+  </action>
+
+</policyconfig>

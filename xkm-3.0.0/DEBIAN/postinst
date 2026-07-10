@@ -1,0 +1,21 @@
+#!/bin/sh
+set -e
+
+# Belt-and-braces: make sure the privileged helper has exactly the
+# ownership/permissions polkit expects, regardless of how the .deb was
+# built or unpacked.
+chown root:root /usr/lib/xkm/xkm-helper
+chmod 0755 /usr/lib/xkm/xkm-helper
+
+chown root:root /usr/bin/xkm
+chmod 0755 /usr/bin/xkm
+
+if command -v update-desktop-database >/dev/null 2>&1; then
+    update-desktop-database -q /usr/share/applications || true
+fi
+
+if command -v gtk-update-icon-cache >/dev/null 2>&1; then
+    gtk-update-icon-cache -q -t /usr/share/icons/hicolor || true
+fi
+
+exit 0

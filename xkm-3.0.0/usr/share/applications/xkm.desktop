@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Name=XKM Multi-Kernel Manager
+GenericName=Kernel Manager
+Comment=Install, remove, and manage XanMod, Liquorix, and mainline kernels
+Exec=xkm
+Icon=xkm
+Terminal=false
+Categories=System;Settings;PackageManager;
+Keywords=kernel;xanmod;liquorix;mainline;dkms;grub;
+StartupNotify=true
+StartupWMClass=com.xanmod.kernel.manager

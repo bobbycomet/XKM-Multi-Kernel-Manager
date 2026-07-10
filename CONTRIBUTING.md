@@ -36,7 +36,7 @@ sudo apt update && sudo apt install \
 ### Running it
 
 ```bash
-python3 XKM
+xkm
 ```
 
 ### Running the self-tests

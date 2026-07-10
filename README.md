@@ -4,6 +4,8 @@
 
 [Griffin blog for updates and releases](https://griffin-linux.blogspot.com/)
 
+The wiki provides more technical information. [WIKI](https://github.com/bobbycomet/XKM-Multi-Kernel-Manager/wiki)
+
 ## What's new in 3.0.0
 
 XKM has been rewritten from the ground up in PyQt6 with the Griffin dark theme, and it's smarter about picking the right kernel for your hardware:
@@ -160,7 +162,7 @@ Or use your package installer.
 **Recommended** to use the desktop shortcut in your applications window.
 
 ```bash
-python3 xkm
+xkm
 ```
 
 To run the built-in self-tests:

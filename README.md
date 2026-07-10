@@ -141,7 +141,15 @@ Given that XKM is aimed at people who just want kernel management to work withou
 
 ---
 
-Download the `.deb` from the [releases page](https://github.com/bobbycomet/XKM-Multi-Kernel-Manager) or run the Python file directly.
+Download the `.deb` from the [releases page](https://github.com/bobbycomet/XKM-Multi-Kernel-Manager/releases/download/v3.0.0/XKM.deb) or run the Python file directly.
+
+```
+wget https://github.com/bobbycomet/XKM-Multi-Kernel-Manager/releases/download/v3.0.0/XKM.deb
+
+sudo apt install ./XKM.deb
+```
+
+Or use your oackage installer.
 
 [Dependencies](https://github.com/bobbycomet/XKM-Multi-Kernel-Manager/wiki#dependencies)
 

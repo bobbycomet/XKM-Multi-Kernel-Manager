@@ -160,13 +160,13 @@ Or use your package installer.
 **Recommended** to use the desktop shortcut in your applications window.
 
 ```bash
-python3 XKM
+python3 xkm
 ```
 
 To run the built-in self-tests:
 
 ```bash
-python3 XKM --test
+xkm --test
 ```
 
 ## Acknowledgments

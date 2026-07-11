@@ -1,7 +1,0 @@
-Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
-Upstream-Name: XKM Multi-Kernel Manager
-Source: https://github.com/bobbycomet/XKM-Multi-Kernel-Manager
-
-Files: *
-Copyright: Bobby Comet
-License: GPLv3

@@ -1,8 +1,8 @@
 <p align="center">
-  <img width="500" height="500" alt="com xanmod kernel manager" src="https://github.com/user-attachments/assets/0ab6fac5-b4ef-4be4-8450-049b7d278098" />
+  <img width="300" height="300" alt="com xanmod kernel manager" src="https://github.com/user-attachments/assets/0ab6fac5-b4ef-4be4-8450-049b7d278098" />
 </p>
 
-[Griffin blog for updates and releases](https://griffin-linux.blogspot.com/)
+Check out [GKM](https://github.com/bobbycomet/GKM), the successor of XKM, for the AppImage and multi distro support with more kernel options for other distros.
 
 The wiki provides more technical information. [WIKI](https://github.com/bobbycomet/XKM-Multi-Kernel-Manager/wiki)
 

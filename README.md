@@ -2,6 +2,8 @@
   <img width="300" height="300" alt="com xanmod kernel manager" src="https://github.com/user-attachments/assets/0ab6fac5-b4ef-4be4-8450-049b7d278098" />
 </p>
 
+## XKM has entered its Long-Term Support (LTS) phase. Feature development has concluded, and updates will be limited to critical bug fixes, security patches, and essential maintenance. 
+
 Check out [GKM](https://github.com/bobbycomet/GKM), the successor of XKM, for the AppImage and multi distro support with more kernel options for other distros.
 
 The wiki provides more technical information. [WIKI](https://github.com/bobbycomet/XKM-Multi-Kernel-Manager/wiki)
